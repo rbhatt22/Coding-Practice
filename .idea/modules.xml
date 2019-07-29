@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Coding-Practice.iml" filepath="$PROJECT_DIR$/Coding-Practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/codingpractice/codingpractice.iml" filepath="$PROJECT_DIR$/codingpractice/codingpractice.iml" />
+    </modules>
+  </component>
+</project>
