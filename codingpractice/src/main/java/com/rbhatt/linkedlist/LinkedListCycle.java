@@ -8,6 +8,7 @@ package com.rbhatt.linkedlist;
 //Can you solve it using O(1) (i.e. constant) memory?
 //This problem can be solved using keeping track of visitd nodes. But that will use O(n) memory.
 //To solve this problem using O(1) we have to use slow and fast pointer.
+//Use of slow and fast pointer is - Floyd's Tortoise and Hare algorithm.
 /**
  * Definition for singly-linked list.
  * class ListNode {
