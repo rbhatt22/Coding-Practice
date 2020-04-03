@@ -1,12 +1,10 @@
 package com.rbhatt.linkedlist;
 
-//LinkedList
+//Linked List
 //Two Pointer
 
-//Leetcode question # 141
+//Leetcode question # 142
 
-//Can you solve it using O(1) (i.e. constant) memory?
-//This problem can be solved using keeping track of visitd nodes. But that will use O(n) memory.
 //To solve this problem using O(1) we have to use slow and fast pointer.
 //Use of slow and fast pointer is - Floyd's Tortoise and Hare algorithm.
 /**
@@ -20,48 +18,40 @@ package com.rbhatt.linkedlist;
  *     }
  * }
  */
+public class LinkedListCycle2 {
 
-class ListNode {
-      int val;
-      ListNode next;
-      ListNode(int x) {
-          val = x;
-          next = null;
-      }
-
-    @Override
-    public String toString() {
-        return String.valueOf(val);
-    }
-}
-
-public class LinkedListCycle {
-
-    public boolean hasCycle(ListNode head) {
+    public ListNode detectCycle(ListNode head) {
 
         if (head == null || head.next == null) {
-            return false;
+            return null;
         }
 
         ListNode slow = head.next;
         ListNode fast = head.next.next;
 
-        while (fast != null && fast.next != null) {
-
-            if (fast.val == slow.val) {
-                return true;
-            }
+        while (fast != null && fast.next != null && fast != slow) {
 
             slow = slow.next;
             fast = fast.next.next;
         }
 
-        return false;
+        if (fast == null || fast.next == null) {
+            return null;
+        }
+
+        ListNode pointer = head;
+
+        while (pointer != slow) {
+            slow = slow.next;
+            pointer = pointer.next;
+        }
+
+        return slow;
     }
 
     public static void main(String[] args) {
 
-        LinkedListCycle ob = new LinkedListCycle();
+        LinkedListCycle2 ob = new LinkedListCycle2();
 
         ListNode head = new ListNode(3);
         ListNode node1 = new ListNode(2);
@@ -73,19 +63,24 @@ public class LinkedListCycle {
         node2.next = node3;
         node3.next = node1;
 
-        System.out.println(ob.hasCycle(head));
+        System.out.println(ob.detectCycle(head));
 
         ListNode head1 = new ListNode(1);
         ListNode node11 = new ListNode(2);
 
         head1.next = node11;
-        node11.next = head1;
+        //node11.next = head1;
 
-        System.out.println(ob.hasCycle(head1));
+        System.out.println(ob.detectCycle(head1));
 
         ListNode head2 = new ListNode(1);
+        ListNode node22 = new ListNode(2);
+        ListNode node33 = new ListNode(3);
 
-        System.out.println(ob.hasCycle(head2));
+        head2.next = node22;
+        node22.next = node33;
+
+        System.out.println(ob.detectCycle(head2));
     }
 
 }
