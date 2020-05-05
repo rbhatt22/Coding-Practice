@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.HashMap;
 
 //String
+//HashTable
 //Leetcode question # 387
 public class FirstUniqueCharacter {
 
