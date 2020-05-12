@@ -9,7 +9,7 @@ import java.util.Queue;
 //dfs
 //Leetcode question # 733
 public class FloodFill {
-
+    //solved without dfs. Usd extra memory to solve this.
     public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
 
         int oldColor = image[sr][sc];
