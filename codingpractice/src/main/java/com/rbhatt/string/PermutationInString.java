@@ -1,4 +1,4 @@
-package com.rbhatt.PracTest;
+package com.rbhatt.string;
 
 import java.util.Arrays;
 
