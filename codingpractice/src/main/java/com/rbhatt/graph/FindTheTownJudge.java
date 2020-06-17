@@ -1,16 +1,57 @@
-package com.rbhatt.array;
+package com.rbhatt.graph;
 
-import java.util.HashSet;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Set;
+import java.util.*;
 
 //Array
-//Graph (tagged in Leetcode but not used in my solution)
+//Graph (updated solution)
 //Leetcode question # 997
 public class FindTheTownJudge {
 
+    //with graph
     public int findJudge(int N, int[][] trust) {
+
+        int result = -1;
+
+        Map<Integer, List<Integer>> adjacencyList = new HashMap<>();
+
+        for (int i = 0; i < trust.length; i++) {
+            List<Integer> list;
+
+            if (adjacencyList.containsKey(trust[i][0])) {
+                list = adjacencyList.get(trust[i][0]);
+            } else {
+                list = new ArrayList<>();
+            }
+
+            list.add(trust[i][1]);
+            adjacencyList.put(trust[i][0], list);
+        }
+
+        for (int i = 1; i <= N; i++) {
+
+            if (!adjacencyList.containsKey(i)) {
+                if (result == -1) {
+                    result = i;
+                } else {
+                    result = -1;
+                }
+            }
+
+        }
+
+        if (result != -1) {
+            for (Map.Entry<Integer, List<Integer>> entry : adjacencyList.entrySet()) {
+                if (!entry.getValue().contains(result)) {
+                    result = -1;
+                    break;
+                }
+            }
+        }
+
+        return result;
+    }
+
+    /*public int findJudge(int N, int[][] trust) {
 
         int result = -1;
         Set<Integer> cantBeJudge = new HashSet<>();
@@ -46,7 +87,7 @@ public class FindTheTownJudge {
         }
 
         return result;
-    }
+    }*/
 
     public static void main(String[] args) {
 
