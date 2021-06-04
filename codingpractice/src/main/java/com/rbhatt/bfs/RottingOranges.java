@@ -1,6 +1,6 @@
-package com.rbhatt.bsf;
+package com.rbhatt.bfs;
 
-//BSF
+//BFS
 
 import java.util.*;
 
