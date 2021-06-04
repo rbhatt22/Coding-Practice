@@ -1,4 +1,4 @@
-package com.rbhatt.bsf;
+package com.rbhatt.bfs;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
